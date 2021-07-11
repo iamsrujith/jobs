@@ -1,0 +1,148 @@
+{% extends 'admin/adbase.html' %}
+{% load static %}
+{% block content %}
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+            <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Photo</h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            {% for can in cand %}
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+{#                                        <input type="text" class="form-control" value="{{ can.user.first_name }}">#}
+                                        <img style="height: 300px;width: 230px;" src="{{ can.photo.url }}">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        <!-- [ Main Content ] start -->
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Basic details </h5>
+                    </div>
+                    <div class="card-body">
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="floating-label" for="Text">First name</label>
+                                        <input type="text" class="form-control" value="{{ can.user.first_name }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="floating-label" for="Text"> Username</label>
+                                        <input type="text" class="form-control" value="{{ can.user.username }}" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="form-group">
+                                        <label class="floating-label" for="Text">Gender</label>
+                                        <input type="text" class="form-control" value="{{ can.gender }}" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- [ form-element ] start -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Contacts</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Phone number</label>
+                                        <input type="text" class="form-control" value="{{ can.contact }}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Email</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" value="{{ can.user.email }}" readonly>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <form>
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <input type="text" class="form-control" value="{{ can.address }}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Place</label>
+                                        <input type="text" class="form-control" value="{{ can.place }}" readonly>
+                                    </div>
+                                </form>
+                            </div>
+                        </div></div></div></div>
+
+                    <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Qualifications and experience</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Qualifications</label>
+                                        <input type="text" class="form-control" value="{{ can.qual }}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Work experience</label>
+                                        <input type="text" class="form-control" id="exampleInputPassword1" value="{{ can.workexp }}" readonly>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-6">
+                                <form>
+                                    <div class="form-group">
+                                        <label>skills</label>
+                                        <input type="text" class="form-control" value="{{ can.skills }}" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Description</label>
+                                        <input type="text" class="form-control" value="{{ can.desc }}" readonly>
+                                    </div>
+                                </form>
+                            </div>
+                        </div></div></div></div>
+
+
+
+
+
+        </div></div></div></section>
+
+    {% endfor %}
+{% endblock %}

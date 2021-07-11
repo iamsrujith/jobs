@@ -1,0 +1,52 @@
+{% extends 'admin/adbase.html' %}
+{% block content %}
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+<div class="pcoded-content">
+       <div class="content-block">
+			<!-- Browse Jobs -->
+			<div class="section-full bg-white browse-job content-inner-2">
+				<div class="container">
+					<div class="row">
+						<div class="col-xl-9 col-lg-8">
+							<h5 class="widget-title font-weight-700 text-uppercase">Jobs available</h5>
+							<ul class="post-job-bx">
+                                {% for job in jobs %}
+								<li>
+
+									<a href="#">
+										<div class="d-flex m-b30">
+											<div class="job-post-company">
+												<span><img src="{{ job.comp.logo.url }}"/></span>
+											</div>
+											<div class="job-post-info">
+												<h4>{{ job.jtitle }}</h4>
+												<ul>
+													<li><i class="fa fa-map-marker"></i>{{ job.comp.place }}</li>
+													<li><i class="fa fa-bookmark-o"></i>{{ job.jtype }}</li>
+													<li><i class="fa fa-clock-o"></i> {{ job.time }}</li>
+												</ul>
+											</div>
+										</div>
+										<div class="d-flex">
+											<div class="job-time mr-auto">
+												<span>Full Time</span>
+											</div>
+											<div class="salary-bx">
+												<span>{{ job.salary }}</span>
+											</div>
+										</div>
+										<span class="post-like fa fa-heart-o"></span>
+									</a>
+
+								</li>
+                                {% endfor %}
+
+                            </ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+</section>
+{% endblock %}

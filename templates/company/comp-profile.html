@@ -1,0 +1,110 @@
+{% extends 'company/comp-base.html' %}
+{% load static %}
+{% block content %}
+<!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-dark" style="background-image:url({% static 'images/banner/bnr1.jpg' %});">
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">Company Profile</h1>
+					<!-- Breadcrumb row -->
+					<div class="breadcrumb-row">
+						<ul class="list-inline">
+							<li><a href="#">Home</a></li>
+							<li>Profile</li>
+						</ul>
+					</div>
+					<!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+        <div class="content-block">
+			<!-- Submit Resume -->
+			<div class="section-full bg-white submit-resume content-inner-2">
+				<div class="container">
+					<form method="post" action="#" enctype="multipart/form-data">
+                    {% csrf_token %}
+                        {% for can in company %}
+                            <div class="form-group">
+{#							<input type="text" name="name" class="form-control" value="{{ can.user.first_name }}">#}
+						<img style="width: 100px;height: 150px;" src="{{ can.logo.url }}">
+                                <a style="--button-bg: black" href="addphoto"><button type="button" class="site-button">Change photo</button> </a>
+                            </div>
+						<div class="form-group">
+							<label>Company name</label>
+							<input  type="text" name="name" class="form-control" value="{{ can.user.first_name }}">
+						</div>
+						<div class="form-group">
+							<label>Company email</label>
+							<input type="email" name="email" class="form-control" value="{{ can.user.email }}">
+						</div>
+{#                            <div class="form-group">#}
+{#							<label>Photo</label>#}
+{#							<div class="custom-file">#}
+{#								<input type="file" class="site-button" id="customFile" name="image">#}
+{#							</div>#}
+{#						</div>#}
+                            <div class="form-group">
+							<label>Company username</label>
+							<input type="text" name="username" class="form-control" value="{{ can.user.username }}">
+						</div>
+                            <div class="form-group">
+							<label>Company contact</label>
+							<input type="number" name="phone_no" class="form-control" value="{{ can.contact }}">
+						</div>
+                             <div class="form-group">
+							<label>Company type</label>
+							<input type="text" name="ctype" class="form-control" value="{{ can.comtype }}">
+						</div>
+                            <div class="form-group">
+							<label>Company address</label>
+							<input type="text" name="address" class="form-control" value="{{ can.address }}">
+						</div>
+                            <div class="form-group">
+							<label>Company place</label>
+							<input type="text" name="place" class="form-control" value="{{ can.place }}">
+						</div>
+{#                            <div class="form-group">#}
+{#							<label> Gender</label>#}
+{#                            <div class="form-check">#}
+{#  <input class="form-check-input" type="radio" value="male" name="gender" id="flexRadioDefault1">#}
+{#  <label class="form-check-label" for="flexRadioDefault1">#}
+{#     Male#}
+{#  </label>#}
+{#</div>#}
+{#<div class="form-check">#}
+{#  <input class="form-check-input" type="radio" value="female" name="gender" id="flexRadioDefault2" checked>#}
+{#  <label class="form-check-label" for="flexRadioDefault2">#}
+{#    Female#}
+{#  </label>#}
+{#</div>#}
+{#						</div>#}
+						<div class="form-group">
+							<label>Number of employees</label>
+							<input type="text" name="noe" class="form-control" value="{{ can.NofEmp }}">
+						</div>
+						<div class="form-group">
+							<label>Registration Date</label>
+							<input type="text" name="regdate" class="form-control" value="{{ can.RegDate }}">
+						</div>
+						<div class="form-group">
+							<label>Description</label>
+							<input type="text" name="desc" class="form-control" value="{{ can.Desc }}">
+						</div>
+						<div class="form-group">
+							<label>Registration number</label>
+							<input type="text" name="rnum" class="form-control" value="{{ can.rnum }}">
+						</div>
+						<button name="profile" value="profile" type="submit" class="site-button">Submit</button>
+                        {% endfor %}
+					</form>
+				</div>
+			</div>
+            <!-- Submit Resume END -->
+		</div>
+    </div>
+    <!-- Content END-->
+{% endblock %}

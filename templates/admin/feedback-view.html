@@ -1,0 +1,66 @@
+{% extends 'admin/adbase.html' %}
+{% block content %}
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+
+            <!-- [ stiped-table ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Feedback</h5>
+                    </div>
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Usertype</th>
+                                        <th>Name</th>
+                                        <th>Feedback</th>
+                                        <th>Sent reply</th>
+                                        <th>Remove</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for com in feedback %}
+                                    <tr>
+                                        <td>{{ com.time }} <br>
+                                        {{ com.date }}</td>
+                                        <td>{{ com.usertype.type }}</td>
+                                        <td>{{ com.candidate.user.username }}
+                                            {{ com.company.user.username }}</td>
+                                        <td>{{ com.feedback }}</td>
+                                        <form method="post" action="#">
+                                            {% csrf_token %}
+                                        <td><input  type="text" name="reply" placeholder="enter reply">
+                                        <input type="hidden" name="hidden" value="{{ com.id }}"></td>
+                                            <td><button type="submit"class="btn btn-danger">reply</button> </td>
+                                        </form>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends 'admin/adbase.html' %}
+{% block content %}
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+
+            <!-- [ stiped-table ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>candidate list</h5>
+                    </div>
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Job name</th>
+                                        <th>Applied candidates</th>
+                                        <th>Status</th>
+                                        <th>Company</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for com in sel %}
+                                    <tr>
+                                        <td>{{ com.job.jtitle }}</td>
+                                        <td>{{ com.cand.user.first_name }}</td>
+                                        <td>{{ com.selected }}</td>
+                                        <td>{{ com.com.user.first_name }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</section>
+{% endblock %}

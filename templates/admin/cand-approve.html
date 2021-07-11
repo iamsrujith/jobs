@@ -1,0 +1,60 @@
+{% extends 'admin/adbase.html' %}
+{% block content %}
+<!-- [ Main Content ] start -->
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+            <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+
+            <!-- [ stiped-table ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>candidate approval</h5>
+                    </div>
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Candidate Name</th>
+                                        <th>Username</th>
+                                        <th>Address</th>
+                                        <th>Approve</th>
+                                        <th>Reject</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                {% for com in candidate %}
+                                    <tr>
+                                        <td>{{ com.user.id }}</td>
+                                        <td>{{ com.user.first_name }}</td>
+                                        <td>{{ com.user.username }}</td>
+                                        <td>{{ com.address }}</td>
+									    <td><a href="approve?id={{ com.user_id}}" class=" btn-sm btn-warning">Approve</a></td>
+                                        <td><a href="reject?id={{ com.user_id}}" class=" btn-sm btn-danger">Reject</a></td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- [ Main Content ] end -->
+    </div>
+</section>
+{% endblock %}

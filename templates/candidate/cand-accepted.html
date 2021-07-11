@@ -1,0 +1,61 @@
+{% extends 'candidate/cand-base.html' %}
+{% block content %}
+
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        				<div class="container">
+ <section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">Working jobs</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+
+            <!-- [ stiped-table ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Job</th>
+                                        <th>Company name</th>
+                                        <th>Add report</th>
+                                        <th>status</th>
+                                        <th>Job details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for com in jobs %}
+                                    <tr>
+                                        <td>{{ com.job.jtitle }}</td>
+                                        <td>{{ com.com.user.first_name }}</td>
+                                        <form action="#" method="post" enctype="multipart/form-data">
+                                            {% csrf_token %}
+                                        <td><input type="file" name="file" required>
+                                        <input type="hidden" name="hidden" value="{{ com.id }}"></td>
+                                        <td><input type="text" name="status" placeholder="enter status"></td>
+                                            <td><button type="submit" class="btn btn-danger">Add status</button> </td>
+                                        </form>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div></div></div></section></div></div></section>
+
+{% endblock %}

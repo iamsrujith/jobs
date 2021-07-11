@@ -1,0 +1,55 @@
+{% extends 'candidate/cand-base.html' %}
+{% block content %}
+
+<section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <!-- [ breadcrumb ] start -->
+        				<div class="container">
+ <section class="pcoded-main-container">
+    <div class="pcoded-content">
+        <div class="page-header">
+            <div class="page-block">
+                <div class="row align-items-center">
+                    <div class="col-md-12">
+                        <div class="page-header-title">
+                            <h5 class="m-b-10">My Reports</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- [ breadcrumb ] end -->
+        <!-- [ Main Content ] start -->
+        <div class="row">
+
+            <!-- [ stiped-table ] start -->
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body table-border-style">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Job</th>
+                                        <th>report</th>
+                                        <th>Report</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for com in report %}
+                                    <tr>
+                                        <td>{{ com.jobs.job.jtitle }}</td>
+                                        <td>{{ com.jobs.com.user.first_name }}</td>
+                                        <td><a href="{{ com.report.url }}">Download</a></td>
+                                        <td>{{ com.status }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div></div></div></section></div></div></section>
+
+{% endblock %}

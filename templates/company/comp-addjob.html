@@ -1,0 +1,94 @@
+{% extends 'company/comp-base.html' %}
+{% load static %}
+{% block content %}
+
+
+<!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-dark" style="background-image:url({% static 'images/banner/bnr1.jpg' %});">
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">ADD JOB</h1>
+					<!-- Breadcrumb row -->
+					<div class="breadcrumb-row">
+						<ul class="list-inline">
+							<li><a href="#">Home</a></li>
+							<li>add job</li>
+						</ul>
+					</div>
+					<!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+                    <div class="content-block">
+			<!-- Submit Resume -->
+			<div class="section-full  submit-resume content-inner-2">
+				<div class="container">
+ <section class="pcoded-main-container">
+    <div class="pcoded-content">
+            <!-- [ form-element ] start -->
+            <div class="col-sm-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5>Add Job</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <form action="#" method="post" enctype="multipart/form-data">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Job title</label>
+                                        <input type="text" class="form-control" name="title" placeholder="enter job title">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputPassword1">Job type</label>
+                                        <input type="text" class="form-control" name="type" id="exampleInputPassword1" placeholder="ente job title">
+                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Contract length</label>
+                                        <input type="text" class="form-control" name="clength" placeholder="enter contract length">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Salary</label>
+                                        <input type="text" class="form-control" name="salary" placeholder="enter salary">
+                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Description</label>
+                                        <input type="text" class="form-control" name="desc" placeholder="enter job description">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Experience required</label>
+                                        <input type="text" name="wrkexp" class="form-control"  placeholder="enter experience required">
+                                    </div>
+
+                            </div>
+                            <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Qualifications required</label>
+                                        <input type="text" class="form-control" name="qual" placeholder="enter qualifications required">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleFormControlSelect1">Job requirements</label>
+                                        <input type="text" class="form-control" name="jobreq" placeholder="enter job requirements">
+                                    </div>
+                                <div class="form-group">
+                                    <button style="align-self: center" type="submit" class="site-button">Add job</button>
+                                </div>
+
+                                </form>
+                            </div>
+                        </div></div></div></div>
+        </div></section>
+            <!-- Submit Resume END -->
+		</div>
+                </div></div></div>
+    <!-- Content END-->
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends 'candidate/cand-base.html' %}
+{% load static %}
+{% block content %}
+<!-- Content -->
+    <div class="page-content bg-white">
+        <!-- inner page banner -->
+        <div class="dez-bnr-inr overlay-black-dark" style="background-image:url({% static 'images/banner/bnr1.jpg' %});">
+            <div class="container">
+                <div class="dez-bnr-inr-entry">
+                    <h1 class="text-white">Submit photo</h1>
+					<!-- Breadcrumb row -->
+					<div class="breadcrumb-row">
+						<ul class="list-inline">
+							<li><a href="#">Home</a></li>
+							<li>Submit photo</li>
+						</ul>
+					</div>
+					<!-- Breadcrumb row END -->
+                </div>
+            </div>
+        </div>
+        <!-- inner page banner END -->
+        <!-- contact area -->
+        <div class="content-block">
+			<!-- Submit Resume -->
+			<div class="section-full bg-white submit-resume content-inner-2">
+				<div class="container">
+					<form method="post" action="#" enctype="multipart/form-data">
+                        {% csrf_token %}
+                            <div class="form-group">
+							<label>Photo</label>
+							<div class="custom-file">
+								<input type="file" class="site-button" id="customFile" name="image">
+							</div>
+						</div>
+                        <button name="profile" value="profile" type="submit" class="site-button">Submit</button></form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <!-- Content END-->
+{% endblock %}
